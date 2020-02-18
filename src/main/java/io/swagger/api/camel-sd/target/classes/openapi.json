@@ -1,0 +1,3881 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Bian Service Operations",
+        "termsOfService": "Terms of service",
+        "contact": {},
+        "license": {},
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "//localhost:8080/"
+        }
+    ],
+    "paths": {
+        "/health/live": {
+            "get": {
+                "tags": [
+                    "health-controller"
+                ],
+                "summary": "live",
+                "operationId": "liveUsingGET",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/health/ready": {
+            "get": {
+                "tags": [
+                    "health-controller"
+                ],
+                "summary": "ready",
+                "operationId": "readyUsingGET",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/promotional-events/activation": {
+            "post": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "activate",
+                "operationId": "activateUsingPOST",
+                "requestBody": {
+                    "description": "bianRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BianRequest??SDPromotionalEventsActivateInputModel??"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??SDPromotionalEventsActivateOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "x-codegen-request-body-name": "bianRequest"
+            }
+        },
+        "/promotional-events/promotional-event-management-plan/behavior-qualifiers": {
+            "get": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "retrieveBQs",
+                "operationId": "retrieveBQsUsingGET",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??List??string????"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/promotional-events/{sd-reference-id}": {
+            "get": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "retrieveSD",
+                "operationId": "retrieveSDUsingGET",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??SDPromotionalEventsRetrieveOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/promotional-events/{sd-reference-id}/configuration": {
+            "put": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "configure",
+                "operationId": "configureUsingPUT",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "bianRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BianRequest??SDPromotionalEventsConfigureInputModel??"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??SDPromotionalEventsConfigureOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "x-codegen-request-body-name": "bianRequest"
+            }
+        },
+        "/promotional-events/{sd-reference-id}/feedback": {
+            "put": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "feedback",
+                "operationId": "feedbackUsingPUT",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "bianRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BianRequest??SDPromotionalEventsFeedbackInputModel??"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??SDPromotionalEventsFeedbackOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "x-codegen-request-body-name": "bianRequest"
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan": {
+            "get": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "retrieveRefIds",
+                "operationId": "retrieveRefIdsUsingGET",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??List??string????"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/creation": {
+            "post": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "create",
+                "operationId": "createUsingPOST",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "bianRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BianRequest??CRPromotionalEventManagementPlanCreateInputModel??"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??CRPromotionalEventManagementPlanCreateOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "x-codegen-request-body-name": "bianRequest"
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}": {
+            "get": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "retrieve",
+                "operationId": "retrieveUsingGET",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??CRPromotionalEventManagementPlanRetrieveOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}/grant": {
+            "put": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "grant",
+                "operationId": "grantUsingPUT",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "bianRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BianRequest??CRPromotionalEventManagementPlanGrantInputModel??"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??CRPromotionalEventManagementPlanGrantOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "x-codegen-request-body-name": "bianRequest"
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}/impactassessment/creation": {
+            "post": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "createImpactassessment",
+                "operationId": "createImpactassessmentUsingPOST",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "bianRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BianRequest??BQImpactAssessmentCreateInputModel??"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??BQImpactAssessmentCreateOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "x-codegen-request-body-name": "bianRequest"
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}/impactassessment/{bq-reference-id}": {
+            "get": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "retrieveImpactassessment",
+                "operationId": "retrieveImpactassessmentUsingGET",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bq-reference-id",
+                        "in": "path",
+                        "description": "bqReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??BQImpactAssessmentRetrieveOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}/impactassessment/{bq-reference-id}/execution": {
+            "put": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "executeImpactassessment",
+                "operationId": "executeImpactassessmentUsingPUT",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bq-reference-id",
+                        "in": "path",
+                        "description": "bqReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "bianRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BianRequest??BQImpactAssessmentExecuteInputModel??"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??BQImpactAssessmentExecuteOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "x-codegen-request-body-name": "bianRequest"
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}/impactassessment/{bq-reference-id}/requisition": {
+            "put": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "requestImpactassessment",
+                "operationId": "requestImpactassessmentUsingPUT",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bq-reference-id",
+                        "in": "path",
+                        "description": "bqReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "bianRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BianRequest??BQImpactAssessmentRequestInputModel??"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??BQImpactAssessmentRequestOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "x-codegen-request-body-name": "bianRequest"
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}/impactassessment/{bq-reference-id}/update": {
+            "put": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "updateImpactassessment",
+                "operationId": "updateImpactassessmentUsingPUT",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bq-reference-id",
+                        "in": "path",
+                        "description": "bqReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "bianRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BianRequest??BQImpactAssessmentUpdateInputModel??"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??BQImpactAssessmentUpdateOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "x-codegen-request-body-name": "bianRequest"
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}/markettracking/{bq-reference-id}": {
+            "get": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "retrieveMarkettracking",
+                "operationId": "retrieveMarkettrackingUsingGET",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bq-reference-id",
+                        "in": "path",
+                        "description": "bqReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??BQMarketTrackingRetrieveOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}/markettracking/{bq-reference-id}/execution": {
+            "put": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "executeMarkettracking",
+                "operationId": "executeMarkettrackingUsingPUT",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bq-reference-id",
+                        "in": "path",
+                        "description": "bqReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "bianRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BianRequest??BQMarketTrackingExecuteInputModel??"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??BQMarketTrackingExecuteOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "x-codegen-request-body-name": "bianRequest"
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}/markettracking/{bq-reference-id}/requisition": {
+            "put": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "requestMarkettracking",
+                "operationId": "requestMarkettrackingUsingPUT",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bq-reference-id",
+                        "in": "path",
+                        "description": "bqReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "bianRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BianRequest??BQMarketTrackingRequestInputModel??"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??BQMarketTrackingRequestOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "x-codegen-request-body-name": "bianRequest"
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}/markettracking/{bq-reference-id}/update": {
+            "put": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "updateMarkettracking",
+                "operationId": "updateMarkettrackingUsingPUT",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bq-reference-id",
+                        "in": "path",
+                        "description": "bqReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "bianRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BianRequest??BQMarketTrackingUpdateInputModel??"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??BQMarketTrackingUpdateOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "x-codegen-request-body-name": "bianRequest"
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}/participation/creation": {
+            "post": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "createParticipation",
+                "operationId": "createParticipationUsingPOST",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "bianRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BianRequest??BQParticipationCreateInputModel??"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??BQParticipationCreateOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "x-codegen-request-body-name": "bianRequest"
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}/participation/{bq-reference-id}": {
+            "get": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "retrieveParticipation",
+                "operationId": "retrieveParticipationUsingGET",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bq-reference-id",
+                        "in": "path",
+                        "description": "bqReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??BQParticipationRetrieveOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}/participation/{bq-reference-id}/requisition": {
+            "put": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "requestParticipation",
+                "operationId": "requestParticipationUsingPUT",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bq-reference-id",
+                        "in": "path",
+                        "description": "bqReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "bianRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BianRequest??BQParticipationRequestInputModel??"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??BQParticipationRequestOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "x-codegen-request-body-name": "bianRequest"
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}/participation/{bq-reference-id}/update": {
+            "put": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "updateParticipation",
+                "operationId": "updateParticipationUsingPUT",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bq-reference-id",
+                        "in": "path",
+                        "description": "bqReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "bianRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BianRequest??BQParticipationUpdateInputModel??"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??BQParticipationUpdateOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "x-codegen-request-body-name": "bianRequest"
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}/requisition": {
+            "put": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "request",
+                "operationId": "requestUsingPUT",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "bianRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BianRequest??CRPromotionalEventManagementPlanRequestInputModel??"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??CRPromotionalEventManagementPlanRequestOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "x-codegen-request-body-name": "bianRequest"
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}/update": {
+            "put": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "update",
+                "operationId": "updateUsingPUT",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "bianRequest",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BianRequest??CRPromotionalEventManagementPlanUpdateInputModel??"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??CRPromotionalEventManagementPlanUpdateOutputModel??"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "x-codegen-request-body-name": "bianRequest"
+            }
+        },
+        "/promotional-events/{sd-reference-id}/promotional-event-management-plan/{cr-reference-id}/{behavior-qualifier}": {
+            "get": {
+                "tags": [
+                    "promotional-events-api-controller"
+                ],
+                "summary": "retrieveBQIds",
+                "operationId": "retrieveBQIdsUsingGET",
+                "parameters": [
+                    {
+                        "name": "sd-reference-id",
+                        "in": "path",
+                        "description": "sdReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cr-reference-id",
+                        "in": "path",
+                        "description": "crReferenceId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "behavior-qualifier",
+                        "in": "path",
+                        "description": "behaviorQualifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BianResponse??List??string????"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "SDPromotionalEventsActivateOutputModelServiceDomainServiceConfigurationRecord": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainServiceAgreement": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsActivateOutputModelServiceDomainServiceConfigurationRecordServiceDomainServiceAgreement"
+                    },
+                    "serviceDomainServiceConfigurationSettingDescription": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceConfigurationSettingReference": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceConfigurationSetup": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsActivateInputModelServiceDomainServiceConfigurationRecordServiceDomainServiceConfigurationSetup"
+                    },
+                    "serviceDomainServiceStatus": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceSubscription": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsActivateOutputModelServiceDomainServiceConfigurationRecordServiceDomainServiceSubscription"
+                    }
+                }
+            },
+            "BQMarketTrackingRetrieveOutputModel": {
+                "type": "object",
+                "properties": {
+                    "marketTrackingInstanceAnalysis": {
+                        "$ref": "#/components/schemas/BQMarketTrackingRetrieveOutputModelMarketTrackingInstanceAnalysis"
+                    },
+                    "marketTrackingInstanceRecord": {
+                        "$ref": "#/components/schemas/BQMarketTrackingRetrieveOutputModelMarketTrackingInstanceRecord"
+                    },
+                    "marketTrackingInstanceReport": {
+                        "$ref": "#/components/schemas/BQMarketTrackingRetrieveOutputModelMarketTrackingInstanceReport"
+                    },
+                    "marketTrackingRetrieveActionResponse": {
+                        "type": "string"
+                    },
+                    "marketTrackingRetrieveActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "marketTrackingRetrieveActionTaskReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanUpdateInputModelPromotionalEventManagementPlanInstanceRecord"
+                    }
+                }
+            },
+            "BianResponse??BQParticipationRetrieveOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQParticipationRetrieveOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "SDPromotionalEventsActivateInputModelServiceDomainServiceConfigurationRecord": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainServiceConfigurationSettingReference": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceConfigurationSettingType": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceConfigurationSetup": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsActivateInputModelServiceDomainServiceConfigurationRecordServiceDomainServiceConfigurationSetup"
+                    }
+                }
+            },
+            "BQParticipationCreateOutputModel": {
+                "type": "object",
+                "properties": {
+                    "participationInitiateActionRecord": {
+                        "type": "object"
+                    },
+                    "participationInitiateActionReference": {
+                        "type": "string"
+                    },
+                    "participationInstanceRecord": {
+                        "$ref": "#/components/schemas/BQParticipationCreateInputModelParticipationInstanceRecord"
+                    },
+                    "participationInstanceReference": {
+                        "type": "string"
+                    },
+                    "participationInstanceStatus": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanUpdateInputModelPromotionalEventManagementPlanInstanceRecord"
+                    }
+                }
+            },
+            "BQImpactAssessmentUpdateInputModel": {
+                "type": "object",
+                "properties": {
+                    "impactAssessmentInstanceRecord": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentCreateOutputModelImpactAssessmentInstanceRecord"
+                    },
+                    "impactAssessmentInstanceReference": {
+                        "type": "string"
+                    },
+                    "impactAssessmentUpdateActionRequest": {
+                        "type": "string"
+                    },
+                    "impactAssessmentUpdateActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateOutputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianRequest??BQImpactAssessmentCreateInputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentCreateInputModel"
+                    }
+                }
+            },
+            "BQParticipationRequestInputModelParticipationInstanceRecordPromotionalEventParticipationInstanceReference": {
+                "type": "object",
+                "properties": {
+                    "employeeBusinessUnitReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventExecutionSchedule": {
+                        "type": "string"
+                    },
+                    "promotionalEventResult": {
+                        "type": "string"
+                    },
+                    "promotionalEventSponsorshipBudget": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQMarketTrackingRetrieveOutputModelMarketTrackingInstanceAnalysis": {
+                "type": "object",
+                "properties": {
+                    "marketTrackingInstanceAnalysisParameters": {
+                        "type": "string"
+                    },
+                    "marketTrackingInstanceAnalysisRecord": {
+                        "type": "object"
+                    },
+                    "marketTrackingInstanceAnalysisReport": {
+                        "type": "object"
+                    },
+                    "marketTrackingInstanceAnalysisReportType": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianResponse??SDPromotionalEventsRetrieveOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsRetrieveOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "BianResponse??SDPromotionalEventsActivateOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsActivateOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "BQImpactAssessmentRetrieveOutputModelImpactAssessmentInstanceReport": {
+                "type": "object",
+                "properties": {
+                    "impactAssessmentInstanceReport": {
+                        "type": "object"
+                    },
+                    "impactAssessmentInstanceReportParameters": {
+                        "type": "string"
+                    },
+                    "impactAssessmentInstanceReportRecord": {
+                        "type": "object"
+                    },
+                    "impactAssessmentInstanceReportType": {
+                        "type": "string"
+                    }
+                }
+            },
+            "SDPromotionalEventsConfigureInputModelServiceDomainServiceConfigurationRecord": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainServiceAgreement": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsConfigureInputModelServiceDomainServiceConfigurationRecordServiceDomainServiceAgreement"
+                    },
+                    "serviceDomainServiceConfigurationSettingReference": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceConfigurationSettingType": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceConfigurationSetup": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsConfigureInputModelServiceDomainServiceConfigurationRecordServiceDomainServiceConfigurationSetup"
+                    },
+                    "serviceDomainServiceSubscription": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsConfigureInputModelServiceDomainServiceConfigurationRecordServiceDomainServiceSubscription"
+                    }
+                }
+            },
+            "SDPromotionalEventsRetrieveOutputModel": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainOfferedService": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsRetrieveOutputModelServiceDomainOfferedService"
+                    },
+                    "serviceDomainRetrieveActionRecord": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsRetrieveOutputModelServiceDomainRetrieveActionRecord"
+                    },
+                    "serviceDomainRetrieveActionResponse": {
+                        "type": "string"
+                    },
+                    "serviceDomainRetrieveActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "serviceDomainRetrieveActionTaskReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanRetrieveOutputModel": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventManagementPlanInstanceAnalysis": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanRetrieveOutputModelPromotionalEventManagementPlanInstanceAnalysis"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanUpdateInputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceReportRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanRetrieveOutputModelPromotionalEventManagementPlanInstanceReportRecord"
+                    },
+                    "promotionalEventManagementPlanRetrieveActionResponse": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanRetrieveActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "promotionalEventManagementPlanRetrieveActionTaskReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQMarketTrackingExecuteInputModel": {
+                "type": "object",
+                "properties": {
+                    "executeRecordType": {
+                        "$ref": "#/components/schemas/BQMarketTrackingExecuteInputModelExecuteRecordType"
+                    },
+                    "marketTrackingExecuteActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "marketTrackingInstanceRecord": {
+                        "$ref": "#/components/schemas/BQMarketTrackingExecuteInputModelMarketTrackingInstanceRecord"
+                    },
+                    "marketTrackingInstanceReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateOutputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanGrantInputModel": {
+                "type": "object",
+                "properties": {
+                    "grantRequestInputRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanGrantInputModelGrantRequestInputRecord"
+                    },
+                    "grantRequestRecordType": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanGrantActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "promotionalEventManagementPlanInstanceReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventsServicingSessionReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianRequest??BQMarketTrackingRequestInputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQMarketTrackingRequestInputModel"
+                    }
+                }
+            },
+            "BQParticipationRequestInputModelParticipationInstanceRecord": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventParticipationInstanceReference": {
+                        "$ref": "#/components/schemas/BQParticipationRequestInputModelParticipationInstanceRecordPromotionalEventParticipationInstanceReference"
+                    }
+                }
+            },
+            "BianRequest??SDPromotionalEventsConfigureInputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsConfigureInputModel"
+                    }
+                }
+            },
+            "SDPromotionalEventsFeedbackInputModelServiceDomainFeedbackActionRecord": {
+                "type": "object",
+                "properties": {
+                    "behaviorQualifierInstanceReference": {
+                        "type": "string"
+                    },
+                    "controlRecordInstanceReference": {
+                        "type": "string"
+                    },
+                    "feedbackRecord": {
+                        "type": "object"
+                    },
+                    "feedbackRecordType": {
+                        "type": "string"
+                    },
+                    "serviceDomainServicingSessionReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQParticipationCreateInputModelParticipationInstanceRecordPromotionalEventParticipationInstanceReference": {
+                "type": "object",
+                "properties": {
+                    "employeeBusinessUnitReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventExecutionSchedule": {
+                        "type": "string"
+                    },
+                    "promotionalEventResult": {
+                        "type": "string"
+                    },
+                    "promotionalEventSponsorshipBudget": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanRequestInputModel": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanRequestInputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanRequestActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "promotionalEventsServicingSessionReference": {
+                        "type": "string"
+                    },
+                    "requestRecordType": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanRequestInputModelRequestRecordType"
+                    }
+                }
+            },
+            "SDPromotionalEventsRetrieveOutputModelServiceDomainRetrieveActionRecordServiceDomainPerformanceAnalysis": {
+                "type": "object",
+                "properties": {
+                    "performanceAnalysisReference": {
+                        "type": "string"
+                    },
+                    "performanceAnalysisReport": {
+                        "type": "object"
+                    },
+                    "performanceAnalysisReportType": {
+                        "type": "string"
+                    },
+                    "performanceAnalysisResult": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanUpdateInputModelPromotionalEventManagementPlanInstanceRecordPromotionalEventPortfolioPromotionalEventMetrics": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventMetricDefinition": {
+                        "type": "string"
+                    },
+                    "promotionalEventMetricGoal": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianResponse??BQImpactAssessmentCreateOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentCreateOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "SDPromotionalEventsRetrieveOutputModelServiceDomainRetrieveActionRecordControlRecordPortfolioAnalysis": {
+                "type": "object",
+                "properties": {
+                    "controlRecordAnalysisReport": {
+                        "type": "object"
+                    },
+                    "controlRecordPortfolioAnalysisReference": {
+                        "type": "string"
+                    },
+                    "controlRecordPortfolioAnalysisReportType": {
+                        "type": "string"
+                    },
+                    "controlRecordPortfolioAnalysisResult": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianResponse??CRPromotionalEventManagementPlanCreateOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "BianRequest??BQImpactAssessmentExecuteInputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentExecuteInputModel"
+                    }
+                }
+            },
+            "SDPromotionalEventsActivateOutputModelServiceDomainServiceConfigurationRecordServiceDomainServiceSubscription": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainServiceSubscriberAccessProfile": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceSubscriberReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "SDPromotionalEventsActivateInputModelServiceDomainServiceConfigurationRecordServiceDomainServiceConfigurationSetup": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainServiceConfigurationParameter": {
+                        "type": "string"
+                    }
+                }
+            },
+            "SDPromotionalEventsActivateInputModel": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainActivationActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "serviceDomainCenterReference": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceConfigurationRecord": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsActivateInputModelServiceDomainServiceConfigurationRecord"
+                    },
+                    "serviceDomainServiceReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianResponse??CRPromotionalEventManagementPlanUpdateOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanUpdateOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "BQParticipationRequestOutputModel": {
+                "type": "object",
+                "properties": {
+                    "participationInstanceRecord": {
+                        "$ref": "#/components/schemas/BQParticipationRequestInputModelParticipationInstanceRecord"
+                    },
+                    "participationRequestActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "participationRequestActionTaskReference": {
+                        "type": "string"
+                    },
+                    "participationRequestRecordReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanUpdateInputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "requestResponseRecord": {
+                        "type": "object"
+                    }
+                }
+            },
+            "BQMarketTrackingRetrieveOutputModelMarketTrackingInstanceRecord": {
+                "type": "object",
+                "properties": {
+                    "marketTrackingWorkTask": {
+                        "$ref": "#/components/schemas/BQMarketTrackingRetrieveOutputModelMarketTrackingInstanceRecordMarketTrackingWorkTask"
+                    },
+                    "marketTrackingWorkTaskDateTime": {
+                        "type": "string"
+                    },
+                    "marketTrackingWorkTaskResult": {
+                        "type": "string"
+                    },
+                    "marketTrackingWorkTaskType": {
+                        "type": "string"
+                    },
+                    "marketTrackingWorkTaskWorkProducts": {
+                        "type": "string"
+                    }
+                }
+            },
+            "SDPromotionalEventsConfigureInputModelServiceDomainServiceConfigurationRecordServiceDomainServiceConfigurationSetup": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainServiceConfigurationParameter": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanUpdateInputModel": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanUpdateInputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanUpdateActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "promotionalEventsServicingSessionReference": {
+                        "type": "string"
+                    },
+                    "updateActionRequest": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQMarketTrackingUpdateInputModel": {
+                "type": "object",
+                "properties": {
+                    "marketTrackingInstanceRecord": {
+                        "$ref": "#/components/schemas/BQMarketTrackingUpdateInputModelMarketTrackingInstanceRecord"
+                    },
+                    "marketTrackingInstanceReference": {
+                        "type": "string"
+                    },
+                    "marketTrackingUpdateActionRequest": {
+                        "type": "string"
+                    },
+                    "marketTrackingUpdateActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateOutputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQMarketTrackingUpdateOutputModel": {
+                "type": "object",
+                "properties": {
+                    "marketTrackingInstanceRecord": {
+                        "$ref": "#/components/schemas/BQMarketTrackingUpdateInputModelMarketTrackingInstanceRecord"
+                    },
+                    "marketTrackingUpdateActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "marketTrackingUpdateActionTaskReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateOutputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "updateResponseRecord": {
+                        "type": "object"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanUpdateInputModelPromotionalEventManagementPlanInstanceRecord": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventPerformanceRecord": {
+                        "type": "object"
+                    },
+                    "promotionalEventPortfolio": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanUpdateInputModelPromotionalEventManagementPlanInstanceRecordPromotionalEventPortfolio"
+                    },
+                    "promotionalEventSchedule": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanRequestInputModelRequestRecordType": {
+                "type": "object",
+                "properties": {
+                    "requestInputRecord": {
+                        "type": "object"
+                    }
+                }
+            },
+            "BianResponse??BQImpactAssessmentRetrieveOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentRetrieveOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanCreateInputModelPromotionalEventManagementPlanInstanceRecord": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventPortfolio": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateInputModelPromotionalEventManagementPlanInstanceRecordPromotionalEventPortfolio"
+                    },
+                    "promotionalEventSchedule": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanGrantOutputModelGrantRequestResponseRecord": {
+                "type": "object",
+                "properties": {
+                    "grantPermissionDetails": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianRequest??BQParticipationUpdateInputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQParticipationUpdateInputModel"
+                    }
+                }
+            },
+            "BianResponse??BQMarketTrackingRetrieveOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQMarketTrackingRetrieveOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "BianResponse??CRPromotionalEventManagementPlanGrantOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanGrantOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "BianRequest??BQImpactAssessmentRequestInputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentRequestInputModel"
+                    }
+                }
+            },
+            "BQMarketTrackingUpdateInputModelMarketTrackingInstanceRecordMarketTrackingWorkTask": {
+                "type": "object",
+                "properties": {
+                    "generalMarketResearchDirectoryEntryInstanceRecord": {
+                        "type": "object"
+                    },
+                    "generalMarketResearchDirectoryEntryInstanceReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQImpactAssessmentRetrieveOutputModelImpactAssessmentInstanceAnalysis": {
+                "type": "object",
+                "properties": {
+                    "impactAssessmentInstanceAnalysisParameters": {
+                        "type": "string"
+                    },
+                    "impactAssessmentInstanceAnalysisRecord": {
+                        "type": "object"
+                    },
+                    "impactAssessmentInstanceAnalysisReport": {
+                        "type": "object"
+                    },
+                    "impactAssessmentInstanceAnalysisReportType": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianRequest??BQParticipationCreateInputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQParticipationCreateInputModel"
+                    }
+                }
+            },
+            "BianRequest??BQImpactAssessmentUpdateInputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentUpdateInputModel"
+                    }
+                }
+            },
+            "BQParticipationUpdateInputModelParticipationInstanceRecord": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventParticipationInstanceReference": {
+                        "$ref": "#/components/schemas/BQParticipationUpdateInputModelParticipationInstanceRecordPromotionalEventParticipationInstanceReference"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanGrantInputModelGrantRequestInputRecord": {
+                "type": "object",
+                "properties": {
+                    "grantRequestDetails": {
+                        "type": "string"
+                    }
+                }
+            },
+            "SDPromotionalEventsRetrieveOutputModelServiceDomainOfferedServiceServiceDomainServiceRecord": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainServiceDescription": {
+                        "type": "string"
+                    },
+                    "serviceDomainServicePoliciesandGuidelines": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsRetrieveOutputModelServiceDomainOfferedServiceServiceDomainServiceRecordServiceDomainServicePoliciesandGuidelines"
+                    },
+                    "serviceDomainServiceSchedule": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceType": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceVersion": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQImpactAssessmentCreateInputModel": {
+                "type": "object",
+                "properties": {
+                    "impactAssessmentInitiateActionRecord": {
+                        "type": "object"
+                    },
+                    "impactAssessmentInstanceRecord": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentCreateInputModelImpactAssessmentInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateOutputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQImpactAssessmentUpdateOutputModel": {
+                "type": "object",
+                "properties": {
+                    "impactAssessmentInstanceRecord": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentCreateOutputModelImpactAssessmentInstanceRecord"
+                    },
+                    "impactAssessmentUpdateActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "impactAssessmentUpdateActionTaskReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateOutputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "updateResponseRecord": {
+                        "type": "object"
+                    }
+                }
+            },
+            "BianResponse??BQMarketTrackingUpdateOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQMarketTrackingUpdateOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "BQMarketTrackingExecuteInputModelMarketTrackingInstanceRecord": {
+                "type": "object",
+                "properties": {
+                    "marketTrackingWorkTask": {
+                        "$ref": "#/components/schemas/BQMarketTrackingExecuteInputModelMarketTrackingInstanceRecordMarketTrackingWorkTask"
+                    },
+                    "marketTrackingWorkTaskDateTime": {
+                        "type": "string"
+                    },
+                    "marketTrackingWorkTaskResult": {
+                        "type": "string"
+                    },
+                    "marketTrackingWorkTaskType": {
+                        "type": "string"
+                    },
+                    "marketTrackingWorkTaskWorkProducts": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQParticipationRetrieveOutputModel": {
+                "type": "object",
+                "properties": {
+                    "participationInstanceAnalysis": {
+                        "$ref": "#/components/schemas/BQParticipationRetrieveOutputModelParticipationInstanceAnalysis"
+                    },
+                    "participationInstanceRecord": {
+                        "$ref": "#/components/schemas/BQParticipationRetrieveOutputModelParticipationInstanceRecord"
+                    },
+                    "participationInstanceReport": {
+                        "$ref": "#/components/schemas/BQParticipationRetrieveOutputModelParticipationInstanceReport"
+                    },
+                    "participationRetrieveActionResponse": {
+                        "type": "string"
+                    },
+                    "participationRetrieveActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "participationRetrieveActionTaskReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanUpdateInputModelPromotionalEventManagementPlanInstanceRecord"
+                    }
+                }
+            },
+            "SDPromotionalEventsRetrieveOutputModelServiceDomainOfferedServiceServiceDomainServiceRecordServiceDomainServicePoliciesandGuidelines": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainServiceEligibility": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceIntendedUses": {
+                        "type": "string"
+                    },
+                    "serviceDomainServicePricingandTerms": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianRequest??BQParticipationRequestInputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQParticipationRequestInputModel"
+                    }
+                }
+            },
+            "BQImpactAssessmentCreateOutputModel": {
+                "type": "object",
+                "properties": {
+                    "impactAssessmentInitiateActionRecord": {
+                        "type": "object"
+                    },
+                    "impactAssessmentInitiateActionReference": {
+                        "type": "string"
+                    },
+                    "impactAssessmentInstanceRecord": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentCreateOutputModelImpactAssessmentInstanceRecord"
+                    },
+                    "impactAssessmentInstanceReference": {
+                        "type": "string"
+                    },
+                    "impactAssessmentInstanceStatus": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateOutputModelPromotionalEventManagementPlanInstanceRecord"
+                    }
+                }
+            },
+            "BQParticipationRetrieveOutputModelParticipationInstanceAnalysis": {
+                "type": "object",
+                "properties": {
+                    "participationInstanceAnalysisParameters": {
+                        "type": "string"
+                    },
+                    "participationInstanceAnalysisRecord": {
+                        "type": "object"
+                    },
+                    "participationInstanceAnalysisReport": {
+                        "type": "object"
+                    },
+                    "participationInstanceAnalysisReportType": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianResponse??BQParticipationCreateOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQParticipationCreateOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanCreateOutputModel": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventManagementPlanCreateActionRecord": {
+                        "type": "object"
+                    },
+                    "promotionalEventManagementPlanCreateActionReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateOutputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanInstanceStatus": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianResponse??BQParticipationRequestOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQParticipationRequestOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "BQParticipationCreateInputModelParticipationInstanceRecord": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventParticipationInstanceReference": {
+                        "$ref": "#/components/schemas/BQParticipationCreateInputModelParticipationInstanceRecordPromotionalEventParticipationInstanceReference"
+                    }
+                }
+            },
+            "BQParticipationUpdateInputModel": {
+                "type": "object",
+                "properties": {
+                    "participationInstanceRecord": {
+                        "$ref": "#/components/schemas/BQParticipationUpdateInputModelParticipationInstanceRecord"
+                    },
+                    "participationInstanceReference": {
+                        "type": "string"
+                    },
+                    "participationUpdateActionRequest": {
+                        "type": "string"
+                    },
+                    "participationUpdateActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanUpdateInputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQMarketTrackingExecuteInputModelMarketTrackingInstanceRecordMarketTrackingWorkTask": {
+                "type": "object",
+                "properties": {
+                    "generalMarketResearchDirectoryEntryInstanceRecord": {
+                        "type": "object"
+                    },
+                    "generalMarketResearchDirectoryEntryInstanceReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQParticipationRetrieveOutputModelParticipationInstanceReport": {
+                "type": "object",
+                "properties": {
+                    "participationInstanceReport": {
+                        "type": "object"
+                    },
+                    "participationInstanceReportParameters": {
+                        "type": "string"
+                    },
+                    "participationInstanceReportRecord": {
+                        "type": "object"
+                    },
+                    "participationInstanceReportType": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanCreateOutputModelPromotionalEventManagementPlanInstanceRecord": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventPerformanceRecord": {
+                        "type": "object"
+                    },
+                    "promotionalEventPortfolio": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateInputModelPromotionalEventManagementPlanInstanceRecordPromotionalEventPortfolio"
+                    },
+                    "promotionalEventSchedule": {
+                        "type": "string"
+                    }
+                }
+            },
+            "SDPromotionalEventsActivateOutputModelServiceDomainServiceConfigurationRecordServiceDomainServiceAgreement": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainServiceAgreementReference": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceAgreementTermsandConditions": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceUserReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQMarketTrackingRequestInputModel": {
+                "type": "object",
+                "properties": {
+                    "marketTrackingInstanceRecord": {
+                        "$ref": "#/components/schemas/BQMarketTrackingRequestInputModelMarketTrackingInstanceRecord"
+                    },
+                    "marketTrackingInstanceReference": {
+                        "type": "string"
+                    },
+                    "marketTrackingRequestActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateOutputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceReference": {
+                        "type": "string"
+                    },
+                    "requestRecordType": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanRequestInputModelRequestRecordType"
+                    }
+                }
+            },
+            "SDPromotionalEventsFeedbackInputModel": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainFeedbackActionRecord": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsFeedbackInputModelServiceDomainFeedbackActionRecord"
+                    },
+                    "serviceDomainFeedbackActionTaskRecord": {
+                        "type": "object"
+                    }
+                }
+            },
+            "SDPromotionalEventsConfigureInputModelServiceDomainServiceConfigurationRecordServiceDomainServiceAgreement": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainServiceAgreementReference": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceAgreementTermsandConditions": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceUserReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanCreateInputModel": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventManagementPlanCreateActionRecord": {
+                        "type": "object"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateInputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceStatus": {
+                        "type": "string"
+                    },
+                    "promotionalEventsServicingSessionReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianRequest??BQMarketTrackingUpdateInputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQMarketTrackingUpdateInputModel"
+                    }
+                }
+            },
+            "BQImpactAssessmentCreateOutputModelImpactAssessmentInstanceRecord": {
+                "type": "object",
+                "properties": {
+                    "impactAssessmentWorkTask": {
+                        "type": "string"
+                    },
+                    "impactAssessmentWorkTaskDateTime": {
+                        "type": "string"
+                    },
+                    "impactAssessmentWorkTaskResult": {
+                        "type": "string"
+                    },
+                    "impactAssessmentWorkTaskType": {
+                        "type": "string"
+                    },
+                    "impactAssessmentWorkTaskWorkProducts": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQMarketTrackingRequestInputModelMarketTrackingInstanceRecord": {
+                "type": "object",
+                "properties": {
+                    "marketTrackingWorkTask": {
+                        "$ref": "#/components/schemas/BQMarketTrackingRequestInputModelMarketTrackingInstanceRecordMarketTrackingWorkTask"
+                    },
+                    "marketTrackingWorkTaskDateTime": {
+                        "type": "string"
+                    },
+                    "marketTrackingWorkTaskResult": {
+                        "type": "string"
+                    },
+                    "marketTrackingWorkTaskType": {
+                        "type": "string"
+                    },
+                    "marketTrackingWorkTaskWorkProducts": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanCreateInputModelPromotionalEventManagementPlanInstanceRecordPromotionalEventPortfolioPromotionalEventMetrics": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventMetricDefinition": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQParticipationCreateInputModel": {
+                "type": "object",
+                "properties": {
+                    "participationInitiateActionRecord": {
+                        "type": "object"
+                    },
+                    "participationInstanceRecord": {
+                        "$ref": "#/components/schemas/BQParticipationCreateInputModelParticipationInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanUpdateInputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQParticipationRequestInputModel": {
+                "type": "object",
+                "properties": {
+                    "participationInstanceRecord": {
+                        "$ref": "#/components/schemas/BQParticipationRequestInputModelParticipationInstanceRecord"
+                    },
+                    "participationInstanceReference": {
+                        "type": "string"
+                    },
+                    "participationRequestActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanUpdateInputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceReference": {
+                        "type": "string"
+                    },
+                    "requestRecordType": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanRequestInputModelRequestRecordType"
+                    }
+                }
+            },
+            "BianResponse??BQImpactAssessmentExecuteOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentExecuteOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "BianRequest??SDPromotionalEventsActivateInputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsActivateInputModel"
+                    }
+                }
+            },
+            "SDPromotionalEventsConfigureInputModelServiceDomainServiceConfigurationRecordServiceDomainServiceSubscription": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainServiceSubscriberAccessProfile": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceSubscriberReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanUpdateInputModelPromotionalEventManagementPlanInstanceRecordPromotionalEventPortfolio": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventDescription": {
+                        "type": "string"
+                    },
+                    "promotionalEventMetrics": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanUpdateInputModelPromotionalEventManagementPlanInstanceRecordPromotionalEventPortfolioPromotionalEventMetrics"
+                    },
+                    "promotionalEventType": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianResponse??List??string????": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "BQImpactAssessmentCreateInputModelImpactAssessmentInstanceRecord": {
+                "type": "object",
+                "properties": {
+                    "impactAssessmentWorkTask": {
+                        "type": "string"
+                    },
+                    "impactAssessmentWorkTaskDateTime": {
+                        "type": "string"
+                    },
+                    "impactAssessmentWorkTaskType": {
+                        "type": "string"
+                    },
+                    "impactAssessmentWorkTaskWorkProducts": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianRequest??SDPromotionalEventsFeedbackInputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsFeedbackInputModel"
+                    }
+                }
+            },
+            "BianRequest??CRPromotionalEventManagementPlanGrantInputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanGrantInputModel"
+                    }
+                }
+            },
+            "BQParticipationRetrieveOutputModelParticipationInstanceRecordPromotionalEventParticipationInstanceReference": {
+                "type": "object",
+                "properties": {
+                    "employeeBusinessUnitReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventExecutionSchedule": {
+                        "type": "string"
+                    },
+                    "promotionalEventResult": {
+                        "type": "string"
+                    },
+                    "promotionalEventSponsorshipBudget": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQParticipationUpdateInputModelParticipationInstanceRecordPromotionalEventParticipationInstanceReference": {
+                "type": "object",
+                "properties": {
+                    "employeeBusinessUnitReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventExecutionSchedule": {
+                        "type": "string"
+                    },
+                    "promotionalEventResult": {
+                        "type": "string"
+                    },
+                    "promotionalEventSponsorshipBudget": {
+                        "type": "string"
+                    }
+                }
+            },
+            "SDPromotionalEventsConfigureInputModel": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainConfigurationActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "serviceDomainServiceConfigurationRecord": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsConfigureInputModelServiceDomainServiceConfigurationRecord"
+                    },
+                    "serviceDomainServiceReference": {
+                        "type": "string"
+                    },
+                    "serviceDomainServicingSessionReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQMarketTrackingRetrieveOutputModelMarketTrackingInstanceRecordMarketTrackingWorkTask": {
+                "type": "object",
+                "properties": {
+                    "generalMarketResearchDirectoryEntryInstanceRecord": {
+                        "type": "object"
+                    },
+                    "generalMarketResearchDirectoryEntryInstanceReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanUpdateOutputModel": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanUpdateInputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanUpdateActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "promotionalEventManagementPlanUpdateActionTaskReference": {
+                        "type": "string"
+                    },
+                    "updateResponseRecord": {
+                        "type": "object"
+                    }
+                }
+            },
+            "BianResponse??SDPromotionalEventsConfigureOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsConfigureOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanGrantOutputModel": {
+                "type": "object",
+                "properties": {
+                    "grantRequestRecordReference": {
+                        "type": "string"
+                    },
+                    "grantRequestResponseRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanGrantOutputModelGrantRequestResponseRecord"
+                    },
+                    "promotionalEventManagementPlanGrantActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "promotionalEventManagementPlanGrantActionTaskReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQImpactAssessmentRetrieveOutputModel": {
+                "type": "object",
+                "properties": {
+                    "impactAssessmentInstanceAnalysis": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentRetrieveOutputModelImpactAssessmentInstanceAnalysis"
+                    },
+                    "impactAssessmentInstanceRecord": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentCreateOutputModelImpactAssessmentInstanceRecord"
+                    },
+                    "impactAssessmentInstanceReport": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentRetrieveOutputModelImpactAssessmentInstanceReport"
+                    },
+                    "impactAssessmentRetrieveActionResponse": {
+                        "type": "string"
+                    },
+                    "impactAssessmentRetrieveActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "impactAssessmentRetrieveActionTaskReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanUpdateInputModelPromotionalEventManagementPlanInstanceRecord"
+                    }
+                }
+            },
+            "BianRequest??CRPromotionalEventManagementPlanUpdateInputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanUpdateInputModel"
+                    }
+                }
+            },
+            "BianRequest??CRPromotionalEventManagementPlanCreateInputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateInputModel"
+                    }
+                }
+            },
+            "BQMarketTrackingExecuteOutputModel": {
+                "type": "object",
+                "properties": {
+                    "executeResponseRecord": {
+                        "type": "object"
+                    },
+                    "marketTrackingExecuteActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "marketTrackingExecuteActionTaskReference": {
+                        "type": "string"
+                    },
+                    "marketTrackingExecuteRecordReference": {
+                        "type": "string"
+                    },
+                    "marketTrackingInstanceRecord": {
+                        "$ref": "#/components/schemas/BQMarketTrackingExecuteInputModelMarketTrackingInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateOutputModelPromotionalEventManagementPlanInstanceRecord"
+                    }
+                }
+            },
+            "BQMarketTrackingRetrieveOutputModelMarketTrackingInstanceReport": {
+                "type": "object",
+                "properties": {
+                    "marketTrackingInstanceReport": {
+                        "type": "object"
+                    },
+                    "marketTrackingInstanceReportParameters": {
+                        "type": "string"
+                    },
+                    "marketTrackingInstanceReportRecord": {
+                        "type": "object"
+                    },
+                    "marketTrackingInstanceReportType": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianResponse??BQMarketTrackingRequestOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQMarketTrackingRequestOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "BianResponse??CRPromotionalEventManagementPlanRetrieveOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanRetrieveOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "SDPromotionalEventsRetrieveOutputModelServiceDomainOfferedService": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainServiceRecord": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsRetrieveOutputModelServiceDomainOfferedServiceServiceDomainServiceRecord"
+                    },
+                    "serviceDomainServiceReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanRequestInputModelPromotionalEventManagementPlanInstanceRecord": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventPortfolio": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateInputModelPromotionalEventManagementPlanInstanceRecordPromotionalEventPortfolio"
+                    }
+                }
+            },
+            "BianRequest??CRPromotionalEventManagementPlanRequestInputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanRequestInputModel"
+                    }
+                }
+            },
+            "ErrorDto": {
+                "type": "object"
+            },
+            "SDPromotionalEventsConfigureOutputModel": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainConfigurationActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "serviceDomainConfigurationActionTaskReference": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceConfigurationRecord": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsConfigureOutputModelServiceDomainServiceConfigurationRecord"
+                    },
+                    "serviceDomainServicingSessionStatus": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianResponse??BQParticipationUpdateOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQParticipationUpdateOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "BianResponse??CRPromotionalEventManagementPlanRequestOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanRequestOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "BQMarketTrackingExecuteInputModelExecuteRecordType": {
+                "type": "object",
+                "properties": {
+                    "executeInputRecord": {
+                        "type": "object"
+                    }
+                }
+            },
+            "BQImpactAssessmentRequestInputModel": {
+                "type": "object",
+                "properties": {
+                    "impactAssessmentInstanceRecord": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentCreateOutputModelImpactAssessmentInstanceRecord"
+                    },
+                    "impactAssessmentInstanceReference": {
+                        "type": "string"
+                    },
+                    "impactAssessmentRequestActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateOutputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceReference": {
+                        "type": "string"
+                    },
+                    "requestRecordType": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanRequestInputModelRequestRecordType"
+                    }
+                }
+            },
+            "SDPromotionalEventsActivateOutputModel": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainActivationActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "serviceDomainActivationActionTaskReference": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceConfigurationRecord": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsActivateOutputModelServiceDomainServiceConfigurationRecord"
+                    },
+                    "serviceDomainServicingSessionRecord": {
+                        "type": "object"
+                    },
+                    "serviceDomainServicingSessionReference": {
+                        "type": "string"
+                    },
+                    "serviceDomainServicingSessionStatus": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQImpactAssessmentExecuteOutputModel": {
+                "type": "object",
+                "properties": {
+                    "executeResponseRecord": {
+                        "type": "object"
+                    },
+                    "impactAssessmentExecuteActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "impactAssessmentExecuteActionTaskReference": {
+                        "type": "string"
+                    },
+                    "impactAssessmentExecuteRecordReference": {
+                        "type": "string"
+                    },
+                    "impactAssessmentInstanceRecord": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentCreateOutputModelImpactAssessmentInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateOutputModelPromotionalEventManagementPlanInstanceRecord"
+                    }
+                }
+            },
+            "BQImpactAssessmentRequestOutputModel": {
+                "type": "object",
+                "properties": {
+                    "impactAssessmentInstanceRecord": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentCreateOutputModelImpactAssessmentInstanceRecord"
+                    },
+                    "impactAssessmentRequestActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "impactAssessmentRequestActionTaskReference": {
+                        "type": "string"
+                    },
+                    "impactAssessmentRequestRecordReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateOutputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "requestResponseRecord": {
+                        "type": "object"
+                    }
+                }
+            },
+            "BianRequest??BQMarketTrackingExecuteInputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQMarketTrackingExecuteInputModel"
+                    }
+                }
+            },
+            "BQImpactAssessmentExecuteInputModel": {
+                "type": "object",
+                "properties": {
+                    "executeRecordType": {
+                        "$ref": "#/components/schemas/BQMarketTrackingExecuteInputModelExecuteRecordType"
+                    },
+                    "impactAssessmentExecuteActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "impactAssessmentInstanceRecord": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentCreateOutputModelImpactAssessmentInstanceRecord"
+                    },
+                    "impactAssessmentInstanceReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateOutputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanInstanceReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "SDPromotionalEventsFeedbackOutputModelServiceDomainFeedbackActionRecord": {
+                "type": "object",
+                "properties": {
+                    "employeeBusinessUnitReference": {
+                        "type": "string"
+                    },
+                    "feedbackRecordDateTime": {
+                        "type": "string"
+                    },
+                    "feedbackRecordStatus": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanRetrieveOutputModelPromotionalEventManagementPlanInstanceAnalysis": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventManagementPlanInstanceAnalysisData": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanInstanceAnalysisReport": {
+                        "type": "object"
+                    },
+                    "promotionalEventManagementPlanInstanceAnalysisReportType": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanRetrieveOutputModelPromotionalEventManagementPlanInstanceReportRecord": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventManagementPlanInstanceReport": {
+                        "type": "object"
+                    },
+                    "promotionalEventManagementPlanInstanceReportData": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanInstanceReportType": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQParticipationUpdateOutputModel": {
+                "type": "object",
+                "properties": {
+                    "participationInstanceRecord": {
+                        "$ref": "#/components/schemas/BQParticipationUpdateInputModelParticipationInstanceRecord"
+                    },
+                    "participationUpdateActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "participationUpdateActionTaskReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanUpdateInputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "updateResponseRecord": {
+                        "type": "object"
+                    }
+                }
+            },
+            "SDPromotionalEventsRetrieveOutputModelServiceDomainRetrieveActionRecord": {
+                "type": "object",
+                "properties": {
+                    "controlRecordPortfolioAnalysis": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsRetrieveOutputModelServiceDomainRetrieveActionRecordControlRecordPortfolioAnalysis"
+                    },
+                    "serviceDomainActivityAnalysis": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsRetrieveOutputModelServiceDomainRetrieveActionRecordServiceDomainActivityAnalysis"
+                    },
+                    "serviceDomainPerformanceAnalysis": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsRetrieveOutputModelServiceDomainRetrieveActionRecordServiceDomainPerformanceAnalysis"
+                    }
+                }
+            },
+            "BianResponse??BQImpactAssessmentUpdateOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentUpdateOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "BQMarketTrackingUpdateInputModelMarketTrackingInstanceRecord": {
+                "type": "object",
+                "properties": {
+                    "marketTrackingWorkTask": {
+                        "$ref": "#/components/schemas/BQMarketTrackingUpdateInputModelMarketTrackingInstanceRecordMarketTrackingWorkTask"
+                    },
+                    "marketTrackingWorkTaskDateTime": {
+                        "type": "string"
+                    },
+                    "marketTrackingWorkTaskResult": {
+                        "type": "string"
+                    },
+                    "marketTrackingWorkTaskType": {
+                        "type": "string"
+                    },
+                    "marketTrackingWorkTaskWorkProducts": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianResponse??BQImpactAssessmentRequestOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQImpactAssessmentRequestOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "SDPromotionalEventsFeedbackOutputModel": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainFeedbackActionRecord": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsFeedbackOutputModelServiceDomainFeedbackActionRecord"
+                    },
+                    "serviceDomainFeedbackActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "serviceDomainFeedbackActionTaskReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "SDPromotionalEventsRetrieveOutputModelServiceDomainRetrieveActionRecordServiceDomainActivityAnalysis": {
+                "type": "object",
+                "properties": {
+                    "activityAnalysisReference": {
+                        "type": "string"
+                    },
+                    "activityAnalysisReport": {
+                        "type": "object"
+                    },
+                    "activityAnalysisReportType": {
+                        "type": "string"
+                    },
+                    "activityAnalysisResult": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BQMarketTrackingRequestInputModelMarketTrackingInstanceRecordMarketTrackingWorkTask": {
+                "type": "object",
+                "properties": {
+                    "generalMarketResearchDirectoryEntryInstanceRecord": {
+                        "type": "object"
+                    },
+                    "generalMarketResearchDirectoryEntryInstanceReference": {
+                        "type": "string"
+                    }
+                }
+            },
+            "SDPromotionalEventsConfigureOutputModelServiceDomainServiceConfigurationRecord": {
+                "type": "object",
+                "properties": {
+                    "serviceDomainServiceAgreement": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsConfigureInputModelServiceDomainServiceConfigurationRecordServiceDomainServiceAgreement"
+                    },
+                    "serviceDomainServiceConfigurationSettingDescription": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceConfigurationSetup": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsConfigureInputModelServiceDomainServiceConfigurationRecordServiceDomainServiceConfigurationSetup"
+                    },
+                    "serviceDomainServiceStatus": {
+                        "type": "string"
+                    },
+                    "serviceDomainServiceSubscription": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsConfigureInputModelServiceDomainServiceConfigurationRecordServiceDomainServiceSubscription"
+                    }
+                }
+            },
+            "BQMarketTrackingRequestOutputModel": {
+                "type": "object",
+                "properties": {
+                    "marketTrackingInstanceRecord": {
+                        "$ref": "#/components/schemas/BQMarketTrackingRequestInputModelMarketTrackingInstanceRecord"
+                    },
+                    "marketTrackingRequestActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "marketTrackingRequestActionTaskReference": {
+                        "type": "string"
+                    },
+                    "marketTrackingRequestRecordReference": {
+                        "type": "string"
+                    },
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateOutputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "requestResponseRecord": {
+                        "type": "object"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanCreateInputModelPromotionalEventManagementPlanInstanceRecordPromotionalEventPortfolio": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventDescription": {
+                        "type": "string"
+                    },
+                    "promotionalEventMetrics": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanCreateInputModelPromotionalEventManagementPlanInstanceRecordPromotionalEventPortfolioPromotionalEventMetrics"
+                    },
+                    "promotionalEventType": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BianResponse??SDPromotionalEventsFeedbackOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/SDPromotionalEventsFeedbackOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "CRPromotionalEventManagementPlanRequestOutputModel": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventManagementPlanInstanceRecord": {
+                        "$ref": "#/components/schemas/CRPromotionalEventManagementPlanRequestInputModelPromotionalEventManagementPlanInstanceRecord"
+                    },
+                    "promotionalEventManagementPlanRequestActionTaskRecord": {
+                        "type": "object"
+                    },
+                    "promotionalEventManagementPlanRequestActionTaskReference": {
+                        "type": "string"
+                    },
+                    "requestRecordReference": {
+                        "type": "string"
+                    },
+                    "requestResponseRecord": {
+                        "type": "object"
+                    }
+                }
+            },
+            "BQParticipationRetrieveOutputModelParticipationInstanceRecord": {
+                "type": "object",
+                "properties": {
+                    "promotionalEventParticipationInstanceReference": {
+                        "$ref": "#/components/schemas/BQParticipationRetrieveOutputModelParticipationInstanceRecordPromotionalEventParticipationInstanceReference"
+                    }
+                }
+            },
+            "BianResponse??BQMarketTrackingExecuteOutputModel??": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/BQMarketTrackingExecuteOutputModel"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDto"
+                        }
+                    },
+                    "status": {
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR",
+                            "PARTIAL"
+                        ],
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "promotional-events-api-controller",
+            "description": "Promotional Events Api Controller"
+        },
+        {
+            "name": "health-controller",
+            "description": "Health Controller"
+        }
+    ]
+}
